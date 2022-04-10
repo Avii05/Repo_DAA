@@ -27,8 +27,8 @@ int main()
 }
 void search(int arr[],int n,int key)
 {
-	int x;
-	for(int i=0,j=0;i<n;i=(pow(2,j)),j++)
+	static int x=0;
+	for(int i=0,j=0;i<n;j++,i=(pow(2,j)))
 	{
 		if(arr[i]==key)
 		{
@@ -38,11 +38,12 @@ void search(int arr[],int n,int key)
 		else if(arr[i]<key)
 		{
 			x=i;
+			cout<<x;
 		}
 		else if(arr[i]>key)
 		{
 			for(x;x<arr[i];x++)
-			{
+			{ 
 				if(arr[x]==key)
 				{
 					cout<<"Element found";
